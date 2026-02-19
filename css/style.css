@@ -344,6 +344,9 @@ body {
 
 .drag-drop-svg {
   position: relative;
+  overflow: visible;
+  margin: 0 auto;
+  padding: 0 100px;
 }
 
 .drop-zone {
@@ -410,118 +413,6 @@ body {
   border-color: #aaa;
 }
 
-/* ===== Build the Body ===== */
-.build-body-layout {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-}
-
-.build-target {
-  position: relative;
-  width: 300px;
-  height: 500px;
-  border: 3px dashed #bbb;
-  border-radius: 20px;
-  background: #fafafa;
-}
-
-.build-drop-zone {
-  position: absolute;
-  border: 2px dashed #ccc;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ccc;
-  font-size: 0.8rem;
-  font-weight: 600;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.build-drop-zone.drag-over {
-  background: rgba(74, 144, 217, 0.15);
-  border-color: #4A90D9;
-}
-
-.build-drop-zone.filled {
-  border-color: #27ae60;
-  background: rgba(39, 174, 96, 0.1);
-}
-
-.build-parts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  justify-content: center;
-  max-width: 500px;
-}
-
-.build-piece {
-  background: #fff;
-  border: 2px solid #4A90D9;
-  border-radius: 12px;
-  padding: 0.5rem;
-  cursor: grab;
-  user-select: none;
-  touch-action: none;
-  transition: transform 0.15s, box-shadow 0.15s, opacity 0.2s;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.build-piece svg {
-  width: 80px;
-  height: 80px;
-}
-
-.build-piece span {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #4A90D9;
-}
-
-.build-piece:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-
-.build-piece.placed {
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* Phase 2 label zones */
-.build-label-zone {
-  position: absolute;
-  min-width: 70px;
-  height: 28px;
-  border: 2px dashed #F39C12;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(243, 156, 18, 0.08);
-  font-size: 0.8rem;
-  color: #ccc;
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.build-label-zone.drag-over {
-  background: rgba(243, 156, 18, 0.2);
-  border-color: #E67E22;
-}
-
-.build-label-zone.filled {
-  background: #fef3cd;
-  border-color: #F39C12;
-  color: #E67E22;
-  font-weight: 700;
-  border-style: solid;
-}
 
 /* ===== Dictionary ===== */
 .dictionary-table-wrapper {
@@ -606,6 +497,10 @@ body {
     max-width: 260px;
   }
 
+  .drag-drop-svg {
+    padding: 0 80px;
+  }
+
   .dictionary-table th,
   .dictionary-table td {
     padding: 0.5rem;
@@ -658,12 +553,6 @@ body {
   .drag-drop-layout {
     flex-direction: column;
     align-items: center;
-  }
-
-  .build-body-layout {
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
   }
 
   .svg-wrapper svg {

@@ -1,4 +1,4 @@
-/* ===== drag-drop.js — Drag & Drop labels game ===== */
+/* ===== drag-drop.js — Drag & Drop labels game with connector lines ===== */
 
 function initDragDrop() {
   loadSVG('drag-drop-svg-wrapper').then(svg => {
@@ -6,46 +6,77 @@ function initDragDrop() {
     const wordsContainer = document.getElementById('drag-words');
     const restartBtn = document.getElementById('drag-drop-restart');
 
-    // Use a subset of parts that have clear visual positions for drop zones
+    // Drop zone positions (% of SVG wrapper) + anchor point on body for line
     const dropConfig = [
-      { id: 'hair',     left: '50%', top: '8%' },
-      { id: 'head',     left: '50%', top: '17%' },
-      { id: 'eye',      left: '82%', top: '17%' },
-      { id: 'ear',      left: '18%', top: '19%' },
-      { id: 'nose',     left: '82%', top: '22%' },
-      { id: 'mouth',    left: '82%', top: '26%' },
-      { id: 'neck',     left: '50%', top: '32%' },
-      { id: 'shoulder', left: '18%', top: '34%' },
-      { id: 'chest',    left: '50%', top: '40%' },
-      { id: 'arm',      left: '10%', top: '48%' },
-      { id: 'elbow',    left: '10%', top: '46%' },
-      { id: 'stomach',  left: '50%', top: '53%' },
-      { id: 'finger',   left: '10%', top: '58%' },
-      { id: 'leg',      left: '82%', top: '70%' },
-      { id: 'knee',     left: '82%', top: '73%' },
-      { id: 'foot',     left: '50%', top: '88%' },
-      { id: 'toe',      left: '50%', top: '92%' },
+      { id: 'hair',     left: '-5%',  top: '6%',   ax: '50%', ay: '10%' },
+      { id: 'head',     left: '105%', top: '14%',  ax: '60%', ay: '18%' },
+      { id: 'eye',      left: '105%', top: '17%',  ax: '56%', ay: '18%' },
+      { id: 'ear',      left: '-5%',  top: '17%',  ax: '36%', ay: '18%' },
+      { id: 'nose',     left: '105%', top: '20%',  ax: '50%', ay: '21%' },
+      { id: 'mouth',    left: '105%', top: '23%',  ax: '50%', ay: '24%' },
+      { id: 'neck',     left: '-5%',  top: '28%',  ax: '50%', ay: '30%' },
+      { id: 'shoulder', left: '-5%',  top: '32%',  ax: '34%', ay: '32%' },
+      { id: 'chest',    left: '105%', top: '35%',  ax: '60%', ay: '38%' },
+      { id: 'arm',      left: '-5%',  top: '42%',  ax: '25%', ay: '42%' },
+      { id: 'elbow',    left: '-5%',  top: '43%',  ax: '27%', ay: '43%' },
+      { id: 'stomach',  left: '105%', top: '48%',  ax: '55%', ay: '50%' },
+      { id: 'finger',   left: '-5%',  top: '54%',  ax: '22%', ay: '54%' },
+      { id: 'leg',      left: '105%', top: '68%',  ax: '60%', ay: '70%' },
+      { id: 'knee',     left: '105%', top: '72%',  ax: '60%', ay: '72%' },
+      { id: 'foot',     left: '-5%',  top: '84%',  ax: '40%', ay: '85%' },
+      { id: 'toe',      left: '-5%',  top: '88%',  ax: '40%', ay: '89%' },
     ];
 
     let placed = 0;
     const total = dropConfig.length;
 
+    // SVG overlay for connector lines
+    let linesSvg = null;
+
+    function createLinesSvg() {
+      if (linesSvg) linesSvg.remove();
+      linesSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      linesSvg.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+      linesSvg.setAttribute('viewBox', '0 0 100 100');
+      linesSvg.setAttribute('preserveAspectRatio', 'none');
+      wrapper.appendChild(linesSvg);
+    }
+
+    function addLine(cfg) {
+      const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      // From drop zone position to anchor on body
+      line.setAttribute('x1', parseFloat(cfg.left));
+      line.setAttribute('y1', parseFloat(cfg.top));
+      line.setAttribute('x2', parseFloat(cfg.ax));
+      line.setAttribute('y2', parseFloat(cfg.ay));
+      line.setAttribute('stroke', '#4A90D9');
+      line.setAttribute('stroke-width', '0.3');
+      line.setAttribute('stroke-dasharray', '1,0.5');
+      line.setAttribute('opacity', '0.5');
+      line.dataset.part = cfg.id;
+      linesSvg.appendChild(line);
+    }
+
     function setup() {
       placed = 0;
-      // Clear existing
       wrapper.querySelectorAll('.drop-zone').forEach(z => z.remove());
       wordsContainer.innerHTML = '';
       restartBtn.style.display = 'none';
       document.getElementById('drag-drop-feedback').textContent = '';
 
-      // Create drop zones
+      createLinesSvg();
+
+      // Create drop zones with connector lines
       dropConfig.forEach(cfg => {
+        addLine(cfg);
+
         const zone = document.createElement('div');
         zone.className = 'drop-zone';
         zone.dataset.part = cfg.id;
         zone.style.left = cfg.left;
         zone.style.top = cfg.top;
         zone.style.transform = 'translate(-50%, -50%)';
+        zone.style.zIndex = '2';
         zone.textContent = '?';
 
         zone.addEventListener('dragover', e => {
@@ -87,9 +118,7 @@ function initDragDrop() {
           card.classList.remove('dragging');
         });
 
-        // Touch support
         setupTouchDrag(card, wrapper);
-
         wordsContainer.appendChild(card);
       });
     }
@@ -102,6 +131,14 @@ function initDragDrop() {
         zone.textContent = part.word;
         zone.classList.add('filled');
         showFeedback('drag-drop-feedback', true);
+
+        // Make the connector line solid green
+        const line = linesSvg.querySelector(`line[data-part="${partId}"]`);
+        if (line) {
+          line.setAttribute('stroke', '#27ae60');
+          line.setAttribute('stroke-dasharray', 'none');
+          line.setAttribute('opacity', '0.8');
+        }
 
         const card = wordsContainer.querySelector(`.drag-card[data-part="${partId}"]`);
         if (card) card.classList.add('placed');
@@ -121,21 +158,17 @@ function initDragDrop() {
     // Touch drag support
     function setupTouchDrag(card, dropParent) {
       let clone = null;
-      let startX, startY;
 
       card.addEventListener('touchstart', e => {
         const touch = e.touches[0];
-        startX = touch.clientX;
-        startY = touch.clientY;
-
         clone = card.cloneNode(true);
         clone.style.position = 'fixed';
         clone.style.zIndex = '9999';
         clone.style.pointerEvents = 'none';
         clone.style.opacity = '0.8';
         clone.style.width = card.offsetWidth + 'px';
-        clone.style.left = (startX - card.offsetWidth / 2) + 'px';
-        clone.style.top = (startY - card.offsetHeight / 2) + 'px';
+        clone.style.left = (touch.clientX - card.offsetWidth / 2) + 'px';
+        clone.style.top = (touch.clientY - card.offsetHeight / 2) + 'px';
         document.body.appendChild(clone);
         card.classList.add('dragging');
       }, { passive: true });
@@ -147,7 +180,6 @@ function initDragDrop() {
         clone.style.left = (touch.clientX - card.offsetWidth / 2) + 'px';
         clone.style.top = (touch.clientY - card.offsetHeight / 2) + 'px';
 
-        // Highlight drop zone under finger
         dropParent.querySelectorAll('.drop-zone').forEach(z => z.classList.remove('drag-over'));
         const el = document.elementFromPoint(touch.clientX, touch.clientY);
         if (el && el.classList.contains('drop-zone')) {

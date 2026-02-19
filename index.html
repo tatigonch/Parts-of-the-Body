@@ -13,14 +13,14 @@
   <!-- Navigation -->
   <nav id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="nav-logo">🦴 Parts of the Body</a>
+      <a href="#hero" class="nav-logo">Parts of the Body</a>
       <button class="nav-toggle" aria-label="Toggle menu">☰</button>
       <ul class="nav-links">
         <li><a href="#learn">Learn</a></li>
         <li><a href="#click-word">Click the Word</a></li>
         <li><a href="#listen-find">Listen &amp; Find</a></li>
         <li><a href="#drag-drop">Drag &amp; Drop</a></li>
-        <li><a href="#build-body">Build the Body</a></li>
+        <li><a href="#label-body">Label the Body</a></li>
         <li><a href="#dictionary">Dictionary</a></li>
       </ul>
     </div>
@@ -30,7 +30,7 @@
   <section id="hero" class="section hero-section">
     <div class="container">
       <h1>Parts of the Body</h1>
-      <p class="hero-subtitle">Learn body parts in English with fun interactive activities!</p>
+      <p class="hero-subtitle">Learn parts of the body with fun</p>
       <a href="#learn" class="btn btn-primary btn-large">Let's Start!</a>
     </div>
   </section>
@@ -38,8 +38,8 @@
   <!-- Section 1: Learn -->
   <section id="learn" class="section">
     <div class="container">
-      <h2 class="section-title">📖 Learn New Words</h2>
-      <p class="section-desc">Hover over body parts to see their names. Click to hear the pronunciation!</p>
+      <h2 class="section-title">Learn New Words</h2>
+      <p class="section-desc">Point body parts to see their names. Click to hear the pronunciation!</p>
       <div class="learn-layout">
         <div class="svg-wrapper" id="learn-svg-wrapper">
           <!-- SVG injected by JS -->
@@ -56,7 +56,7 @@
   <!-- Section 2: Click the Word -->
   <section id="click-word" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">🎯 Click the Word</h2>
+      <h2 class="section-title">Click the Word</h2>
       <p class="section-desc">Find and click the correct body part on the character!</p>
       <div class="progress-bar-container">
         <div class="progress-bar" id="click-word-progress"></div>
@@ -78,7 +78,7 @@
   <!-- Section 3: Listen & Find -->
   <section id="listen-find" class="section">
     <div class="container">
-      <h2 class="section-title">👂 Listen &amp; Find</h2>
+      <h2 class="section-title">Listen &amp; Find</h2>
       <p class="section-desc">Listen to the word and click the correct body part!</p>
       <div class="progress-bar-container">
         <div class="progress-bar" id="listen-find-progress"></div>
@@ -100,7 +100,7 @@
   <!-- Section 4: Drag & Drop -->
   <section id="drag-drop" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">✋ Drag &amp; Drop</h2>
+      <h2 class="section-title">Drag &amp; Drop</h2>
       <p class="section-desc">Drag the labels to the correct body parts!</p>
       <div class="game-feedback" id="drag-drop-feedback"></div>
       <div class="drag-drop-layout">
@@ -115,29 +115,28 @@
     </div>
   </section>
 
-  <!-- Section 5: Build the Body -->
-  <section id="build-body" class="section">
+  <!-- Section 5: Label the Body -->
+  <section id="label-body" class="section">
     <div class="container">
-      <h2 class="section-title">🧩 Build the Body</h2>
-      <p class="section-desc" id="build-body-desc">Drag body parts onto the silhouette to build the character!</p>
-      <div class="game-feedback" id="build-body-feedback"></div>
-      <div class="build-body-layout">
-        <div class="build-target" id="build-target">
-          <!-- Silhouette / drop zones -->
+      <h2 class="section-title">Label the Body</h2>
+      <p class="section-desc">Drag the labels to the correct body parts!</p>
+      <div class="game-feedback" id="label-body-feedback"></div>
+      <div class="drag-drop-layout">
+        <div class="svg-wrapper drag-drop-svg" id="label-body-svg-wrapper">
+          <!-- SVG injected by JS -->
         </div>
-        <div class="build-parts" id="build-parts">
-          <!-- Draggable body parts -->
+        <div class="drag-words" id="label-body-words">
+          <!-- Draggable word cards injected by JS -->
         </div>
       </div>
-      <button class="btn btn-primary" id="build-body-restart" style="display:none;">Play Again</button>
+      <button class="btn btn-primary" id="label-body-restart" style="display:none;">Play Again</button>
     </div>
   </section>
 
   <!-- Section 6: Dictionary -->
   <section id="dictionary" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">📚 Dictionary</h2>
-      <p class="section-desc">All the body part words with transcription and translation.</p>
+      <h2 class="section-title">Dictionary</h2>
       <div class="dictionary-table-wrapper">
         <table class="dictionary-table" id="dictionary-table">
           <thead>
@@ -170,6 +169,6 @@
   <script src="js/click-word.js"></script>
   <script src="js/listen-find.js"></script>
   <script src="js/drag-drop.js"></script>
-  <script src="js/build-body.js"></script>
+  <script src="js/label-body.js"></script>
 </body>
 </html>

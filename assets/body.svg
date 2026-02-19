@@ -1,13 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 650" width="400" height="650">
   <defs>
     <style>
       .body-part { cursor: pointer; transition: filter 0.2s; }
       .body-part:hover { filter: brightness(1.15) drop-shadow(0 0 6px rgba(74,144,226,0.6)); }
       .skin { fill: #FFDBB4; }
       .skin-dark { fill: #F5C49C; }
+      .skin-accent { fill: #EDCDA3; }
       .clothes-top { fill: #4A90D9; }
-      .clothes-bottom { fill: #5B6EAE; }
-      .shoe { fill: #E74C3C; }
+      .shorts { fill: #5B6EAE; }
       .hair-color { fill: #8B4513; }
       .eye-color { fill: #2C3E50; }
     </style>
@@ -26,9 +26,9 @@
     <ellipse cx="200" cy="120" rx="55" ry="60" class="skin"/>
   </g>
 
-  <!-- Forehead -->
+  <!-- Forehead (darker tint) -->
   <g id="forehead" class="body-part" data-part="forehead">
-    <rect x="160" y="75" width="80" height="30" rx="15" fill="transparent"/>
+    <rect x="160" y="78" width="80" height="28" rx="14" class="skin-accent" opacity="0.7"/>
   </g>
 
   <!-- Eyes -->
@@ -52,11 +52,11 @@
     <ellipse cx="255" cy="120" rx="5" ry="8" class="skin-dark"/>
   </g>
 
-  <!-- Nose -->
+  <!-- Nose (darker tint) -->
   <g id="nose" class="body-part" data-part="nose">
-    <path d="M195 120 Q200 138 205 120" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="194" cy="130" r="2.5" class="skin-dark"/>
-    <circle cx="206" cy="130" r="2.5" class="skin-dark"/>
+    <path d="M193 118 Q200 140 207 118" fill="#EDCDA3" stroke="#D4A574" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="194" cy="131" r="3" class="skin-accent"/>
+    <circle cx="206" cy="131" r="3" class="skin-accent"/>
   </g>
 
   <!-- Cheek -->
@@ -75,9 +75,9 @@
     <path d="M185 148 Q195 143 200 145 Q205 143 215 148" fill="#E88" stroke="none"/>
   </g>
 
-  <!-- Chin -->
+  <!-- Chin (darker tint) -->
   <g id="chin" class="body-part" data-part="chin">
-    <ellipse cx="200" cy="168" rx="18" ry="10" fill="transparent"/>
+    <ellipse cx="200" cy="168" rx="20" ry="12" class="skin-accent" opacity="0.65"/>
   </g>
 
   <!-- Neck -->
@@ -100,75 +100,106 @@
 
   <!-- Stomach -->
   <g id="stomach" class="body-part" data-part="stomach">
-    <path d="M130 280 Q128 320 135 360 Q200 370 265 360 Q272 320 270 280 Q200 290 130 280 Z" class="clothes-top"/>
-    <!-- Belt -->
-    <rect x="135" y="355" width="130" height="8" rx="3" fill="#4A4A4A"/>
-    <rect x="193" y="353" width="14" height="12" rx="2" fill="#FFD700"/>
+    <path d="M130 280 Q128 320 135 355 Q200 365 265 355 Q272 320 270 280 Q200 290 130 280 Z" class="clothes-top"/>
   </g>
 
-  <!-- Left Arm -->
+  <!-- Arms -->
   <g id="arm" class="body-part" data-part="arm">
-    <!-- Left upper arm -->
+    <!-- Left upper arm (sleeve) -->
     <path d="M120 210 Q100 250 95 280 L115 285 Q118 255 135 220 Z" class="clothes-top"/>
-    <!-- Left forearm -->
+    <!-- Left forearm (skin) -->
     <path d="M95 280 Q85 310 80 340 L100 345 Q103 315 115 285 Z" class="skin"/>
     <!-- Left hand -->
     <ellipse cx="88" cy="350" rx="15" ry="12" class="skin"/>
-    <!-- Right upper arm -->
+    <!-- Right upper arm (sleeve) -->
     <path d="M280 210 Q300 250 305 280 L285 285 Q282 255 265 220 Z" class="clothes-top"/>
-    <!-- Right forearm -->
+    <!-- Right forearm (skin) -->
     <path d="M305 280 Q315 310 320 340 L300 345 Q297 315 285 285 Z" class="skin"/>
     <!-- Right hand -->
     <ellipse cx="312" cy="350" rx="15" ry="12" class="skin"/>
   </g>
 
-  <!-- Elbow -->
+  <!-- Elbow (darker tint) -->
   <g id="elbow" class="body-part" data-part="elbow">
-    <circle cx="105" cy="282" r="8" fill="transparent"/>
-    <circle cx="295" cy="282" r="8" fill="transparent"/>
+    <circle cx="105" cy="282" r="10" class="skin-accent" opacity="0.7"/>
+    <circle cx="295" cy="282" r="10" class="skin-accent" opacity="0.7"/>
   </g>
 
-  <!-- Finger -->
+  <!-- Fingers — 5 per hand (rounded ovals) -->
   <g id="finger" class="body-part" data-part="finger">
-    <!-- Left hand fingers -->
-    <line x1="75" y1="345" x2="68" y2="355" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <line x1="80" y1="350" x2="72" y2="363" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <line x1="88" y1="352" x2="82" y2="367" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <line x1="96" y1="350" x2="92" y2="365" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <!-- Right hand fingers -->
-    <line x1="325" y1="345" x2="332" y2="355" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <line x1="320" y1="350" x2="328" y2="363" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <line x1="312" y1="352" x2="318" y2="367" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
-    <line x1="304" y1="350" x2="308" y2="365" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <!-- Left hand fingers: thumb + 4 fingers fanned out below the palm -->
+    <!-- Thumb (shorter, angled outward) -->
+    <ellipse cx="72" cy="345" rx="4" ry="8" transform="rotate(-35 72 345)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Index -->
+    <ellipse cx="75" cy="358" rx="3.5" ry="9" transform="rotate(-15 75 358)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Middle (longest) -->
+    <ellipse cx="83" cy="361" rx="3.5" ry="10" transform="rotate(-5 83 361)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Ring -->
+    <ellipse cx="91" cy="360" rx="3.5" ry="9" transform="rotate(5 91 360)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Pinky (shortest) -->
+    <ellipse cx="99" cy="357" rx="3" ry="7.5" transform="rotate(12 99 357)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+
+    <!-- Right hand fingers (mirrored) -->
+    <!-- Thumb -->
+    <ellipse cx="328" cy="345" rx="4" ry="8" transform="rotate(35 328 345)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Index -->
+    <ellipse cx="325" cy="358" rx="3.5" ry="9" transform="rotate(15 325 358)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Middle -->
+    <ellipse cx="317" cy="361" rx="3.5" ry="10" transform="rotate(5 317 361)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Ring -->
+    <ellipse cx="309" cy="360" rx="3.5" ry="9" transform="rotate(-5 309 360)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
+    <!-- Pinky -->
+    <ellipse cx="301" cy="357" rx="3" ry="7.5" transform="rotate(-12 301 357)" class="skin" stroke="#E8C9A0" stroke-width="0.5"/>
   </g>
 
-  <!-- Left Leg -->
+  <!-- Shorts (waistband + legs) -->
+  <g>
+    <!-- Waistband -->
+    <rect x="135" y="352" width="130" height="10" rx="3" fill="#4A4A4A"/>
+    <rect x="193" y="350" width="14" height="14" rx="2" fill="#FFD700"/>
+    <!-- Left short leg -->
+    <path d="M140 362 L138 410 L178 410 L175 362 Z" class="shorts"/>
+    <!-- Right short leg -->
+    <path d="M222 362 L220 410 L260 410 L258 362 Z" class="shorts"/>
+  </g>
+
+  <!-- Legs (bare skin below shorts) -->
   <g id="leg" class="body-part" data-part="leg">
     <!-- Left leg -->
-    <path d="M150 365 Q145 420 140 480 L170 482 Q172 420 175 365 Z" class="clothes-bottom"/>
+    <path d="M140 410 Q137 460 135 520 L170 522 Q170 460 175 410 Z" class="skin"/>
     <!-- Right leg -->
-    <path d="M225 365 Q228 420 230 480 L260 482 Q255 420 250 365 Z" class="clothes-bottom"/>
+    <path d="M222 410 Q225 460 228 520 L263 522 Q260 460 258 410 Z" class="skin"/>
   </g>
 
-  <!-- Knee -->
+  <!-- Knee (darker tint) -->
   <g id="knee" class="body-part" data-part="knee">
-    <circle cx="157" cy="440" r="12" fill="transparent"/>
-    <circle cx="243" cy="440" r="12" fill="transparent"/>
+    <ellipse cx="157" cy="468" rx="14" ry="12" class="skin-accent" opacity="0.7"/>
+    <ellipse cx="243" cy="468" rx="14" ry="12" class="skin-accent" opacity="0.7"/>
   </g>
 
-  <!-- Left Foot -->
+  <!-- Feet (bare) -->
   <g id="foot" class="body-part" data-part="foot">
-    <!-- Left shoe -->
-    <path d="M135 480 L130 520 Q125 535 140 535 L175 535 Q185 535 182 520 L175 480 Z" class="shoe"/>
-    <path d="M130 520 Q125 535 140 535 L175 535 Q185 535 182 520 Z" fill="#C0392B"/>
-    <!-- Right shoe -->
-    <path d="M225 480 L220 520 Q215 535 230 535 L265 535 Q275 535 272 520 L265 480 Z" class="shoe"/>
-    <path d="M220 520 Q215 535 230 535 L265 535 Q275 535 272 520 Z" fill="#C0392B"/>
+    <!-- Left foot -->
+    <path d="M132 520 L128 555 Q125 570 145 572 L172 572 Q180 570 177 555 L173 520 Z" class="skin"/>
+    <path d="M128 555 Q125 570 145 572 L172 572 Q180 570 177 555 Z" class="skin-dark"/>
+    <!-- Right foot -->
+    <path d="M225 520 L221 555 Q218 570 238 572 L265 572 Q273 570 270 555 L266 520 Z" class="skin"/>
+    <path d="M221 555 Q218 570 238 572 L265 572 Q273 570 270 555 Z" class="skin-dark"/>
   </g>
 
-  <!-- Toe -->
+  <!-- Toes — 5 per foot -->
   <g id="toe" class="body-part" data-part="toe">
-    <ellipse cx="155" cy="535" rx="20" ry="5" fill="transparent"/>
-    <ellipse cx="245" cy="535" rx="20" ry="5" fill="transparent"/>
+    <!-- Left foot toes -->
+    <circle cx="135" cy="572" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="143" cy="574" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="151" cy="575" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="159" cy="574" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="167" cy="572" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <!-- Right foot toes -->
+    <circle cx="228" cy="572" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="236" cy="574" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="244" cy="575" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="252" cy="574" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
+    <circle cx="260" cy="572" r="4" class="skin-dark" stroke="#E8B88A" stroke-width="0.5"/>
   </g>
 </svg>

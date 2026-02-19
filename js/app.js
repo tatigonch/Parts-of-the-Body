@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initClickWord();
   initListenFind();
   initDragDrop();
-  initBuildBody();
+  initLabelBody();
   initDictionary();
 });
 
