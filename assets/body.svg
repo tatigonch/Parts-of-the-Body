@@ -1,0 +1,174 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 600" width="400" height="600">
+  <defs>
+    <style>
+      .body-part { cursor: pointer; transition: filter 0.2s; }
+      .body-part:hover { filter: brightness(1.15) drop-shadow(0 0 6px rgba(74,144,226,0.6)); }
+      .skin { fill: #FFDBB4; }
+      .skin-dark { fill: #F5C49C; }
+      .clothes-top { fill: #4A90D9; }
+      .clothes-bottom { fill: #5B6EAE; }
+      .shoe { fill: #E74C3C; }
+      .hair-color { fill: #8B4513; }
+      .eye-color { fill: #2C3E50; }
+    </style>
+  </defs>
+
+  <!-- Hair -->
+  <g id="hair" class="body-part" data-part="hair">
+    <ellipse cx="200" cy="95" rx="68" ry="55" class="hair-color"/>
+    <ellipse cx="200" cy="80" rx="60" ry="35" class="hair-color"/>
+    <circle cx="145" cy="105" r="18" class="hair-color"/>
+    <circle cx="255" cy="105" r="18" class="hair-color"/>
+  </g>
+
+  <!-- Head -->
+  <g id="head" class="body-part" data-part="head">
+    <ellipse cx="200" cy="120" rx="55" ry="60" class="skin"/>
+  </g>
+
+  <!-- Forehead -->
+  <g id="forehead" class="body-part" data-part="forehead">
+    <rect x="160" y="75" width="80" height="30" rx="15" fill="transparent"/>
+  </g>
+
+  <!-- Eyes -->
+  <g id="eye" class="body-part" data-part="eye">
+    <ellipse cx="180" cy="115" rx="10" ry="8" fill="white" stroke="#333" stroke-width="1"/>
+    <circle cx="182" cy="115" r="4" class="eye-color"/>
+    <circle cx="183" cy="113" r="1.5" fill="white"/>
+    <ellipse cx="220" cy="115" rx="10" ry="8" fill="white" stroke="#333" stroke-width="1"/>
+    <circle cx="222" cy="115" r="4" class="eye-color"/>
+    <circle cx="223" cy="113" r="1.5" fill="white"/>
+    <!-- Eyebrows -->
+    <path d="M168 105 Q180 98 192 105" fill="none" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M208 105 Q220 98 232 105" fill="none" stroke="#8B4513" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Ear -->
+  <g id="ear" class="body-part" data-part="ear">
+    <ellipse cx="145" cy="120" rx="10" ry="15" class="skin" stroke="#E8B88A" stroke-width="1"/>
+    <ellipse cx="145" cy="120" rx="5" ry="8" class="skin-dark"/>
+    <ellipse cx="255" cy="120" rx="10" ry="15" class="skin" stroke="#E8B88A" stroke-width="1"/>
+    <ellipse cx="255" cy="120" rx="5" ry="8" class="skin-dark"/>
+  </g>
+
+  <!-- Nose -->
+  <g id="nose" class="body-part" data-part="nose">
+    <path d="M195 120 Q200 138 205 120" fill="none" stroke="#D4A574" stroke-width="2.5" stroke-linecap="round"/>
+    <circle cx="194" cy="130" r="2.5" class="skin-dark"/>
+    <circle cx="206" cy="130" r="2.5" class="skin-dark"/>
+  </g>
+
+  <!-- Cheek -->
+  <g id="cheek" class="body-part" data-part="cheek">
+    <ellipse cx="168" cy="135" rx="12" ry="8" fill="#FFB6B6" opacity="0.5"/>
+    <ellipse cx="232" cy="135" rx="12" ry="8" fill="#FFB6B6" opacity="0.5"/>
+  </g>
+
+  <!-- Mouth -->
+  <g id="mouth" class="body-part" data-part="mouth">
+    <path d="M185 148 Q200 162 215 148" fill="#E57373" stroke="#C94040" stroke-width="1.5"/>
+  </g>
+
+  <!-- Lip -->
+  <g id="lip" class="body-part" data-part="lip">
+    <path d="M185 148 Q195 143 200 145 Q205 143 215 148" fill="#E88" stroke="none"/>
+  </g>
+
+  <!-- Chin -->
+  <g id="chin" class="body-part" data-part="chin">
+    <ellipse cx="200" cy="168" rx="18" ry="10" fill="transparent"/>
+  </g>
+
+  <!-- Neck -->
+  <g id="neck" class="body-part" data-part="neck">
+    <rect x="185" y="175" width="30" height="25" rx="5" class="skin"/>
+  </g>
+
+  <!-- Shoulder -->
+  <g id="shoulder" class="body-part" data-part="shoulder">
+    <ellipse cx="135" cy="210" rx="25" ry="15" class="clothes-top"/>
+    <ellipse cx="265" cy="210" rx="25" ry="15" class="clothes-top"/>
+  </g>
+
+  <!-- Chest -->
+  <g id="chest" class="body-part" data-part="chest">
+    <path d="M120 210 Q115 200 135 195 L185 195 Q200 192 215 195 L265 195 Q285 200 280 210 L280 280 Q200 290 120 280 Z" class="clothes-top"/>
+    <!-- Shirt collar -->
+    <path d="M185 195 L195 210 L200 205 L205 210 L215 195" fill="#3A7BC8" stroke="none"/>
+  </g>
+
+  <!-- Stomach -->
+  <g id="stomach" class="body-part" data-part="stomach">
+    <path d="M130 280 Q128 320 135 360 Q200 370 265 360 Q272 320 270 280 Q200 290 130 280 Z" class="clothes-top"/>
+    <!-- Belt -->
+    <rect x="135" y="355" width="130" height="8" rx="3" fill="#4A4A4A"/>
+    <rect x="193" y="353" width="14" height="12" rx="2" fill="#FFD700"/>
+  </g>
+
+  <!-- Left Arm -->
+  <g id="arm" class="body-part" data-part="arm">
+    <!-- Left upper arm -->
+    <path d="M120 210 Q100 250 95 280 L115 285 Q118 255 135 220 Z" class="clothes-top"/>
+    <!-- Left forearm -->
+    <path d="M95 280 Q85 310 80 340 L100 345 Q103 315 115 285 Z" class="skin"/>
+    <!-- Left hand -->
+    <ellipse cx="88" cy="350" rx="15" ry="12" class="skin"/>
+    <!-- Right upper arm -->
+    <path d="M280 210 Q300 250 305 280 L285 285 Q282 255 265 220 Z" class="clothes-top"/>
+    <!-- Right forearm -->
+    <path d="M305 280 Q315 310 320 340 L300 345 Q297 315 285 285 Z" class="skin"/>
+    <!-- Right hand -->
+    <ellipse cx="312" cy="350" rx="15" ry="12" class="skin"/>
+  </g>
+
+  <!-- Elbow -->
+  <g id="elbow" class="body-part" data-part="elbow">
+    <circle cx="105" cy="282" r="8" fill="transparent"/>
+    <circle cx="295" cy="282" r="8" fill="transparent"/>
+  </g>
+
+  <!-- Finger -->
+  <g id="finger" class="body-part" data-part="finger">
+    <!-- Left hand fingers -->
+    <line x1="75" y1="345" x2="68" y2="355" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <line x1="80" y1="350" x2="72" y2="363" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <line x1="88" y1="352" x2="82" y2="367" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <line x1="96" y1="350" x2="92" y2="365" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <!-- Right hand fingers -->
+    <line x1="325" y1="345" x2="332" y2="355" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <line x1="320" y1="350" x2="328" y2="363" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <line x1="312" y1="352" x2="318" y2="367" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+    <line x1="304" y1="350" x2="308" y2="365" stroke="#FFDBB4" stroke-width="5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Left Leg -->
+  <g id="leg" class="body-part" data-part="leg">
+    <!-- Left leg -->
+    <path d="M150 365 Q145 420 140 480 L170 482 Q172 420 175 365 Z" class="clothes-bottom"/>
+    <!-- Right leg -->
+    <path d="M225 365 Q228 420 230 480 L260 482 Q255 420 250 365 Z" class="clothes-bottom"/>
+  </g>
+
+  <!-- Knee -->
+  <g id="knee" class="body-part" data-part="knee">
+    <circle cx="157" cy="440" r="12" fill="transparent"/>
+    <circle cx="243" cy="440" r="12" fill="transparent"/>
+  </g>
+
+  <!-- Left Foot -->
+  <g id="foot" class="body-part" data-part="foot">
+    <!-- Left shoe -->
+    <path d="M135 480 L130 520 Q125 535 140 535 L175 535 Q185 535 182 520 L175 480 Z" class="shoe"/>
+    <path d="M130 520 Q125 535 140 535 L175 535 Q185 535 182 520 Z" fill="#C0392B"/>
+    <!-- Right shoe -->
+    <path d="M225 480 L220 520 Q215 535 230 535 L265 535 Q275 535 272 520 L265 480 Z" class="shoe"/>
+    <path d="M220 520 Q215 535 230 535 L265 535 Q275 535 272 520 Z" fill="#C0392B"/>
+  </g>
+
+  <!-- Toe -->
+  <g id="toe" class="body-part" data-part="toe">
+    <ellipse cx="155" cy="535" rx="20" ry="5" fill="transparent"/>
+    <ellipse cx="245" cy="535" rx="20" ry="5" fill="transparent"/>
+  </g>
+</svg>

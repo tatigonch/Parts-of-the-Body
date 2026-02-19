@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parts of the Body</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">🦴 Parts of the Body</a>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="#learn">Learn</a></li>
+        <li><a href="#click-word">Click the Word</a></li>
+        <li><a href="#listen-find">Listen &amp; Find</a></li>
+        <li><a href="#drag-drop">Drag &amp; Drop</a></li>
+        <li><a href="#build-body">Build the Body</a></li>
+        <li><a href="#dictionary">Dictionary</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero" class="section hero-section">
+    <div class="container">
+      <h1>Parts of the Body</h1>
+      <p class="hero-subtitle">Learn body parts in English with fun interactive activities!</p>
+      <a href="#learn" class="btn btn-primary btn-large">Let's Start!</a>
+    </div>
+  </section>
+
+  <!-- Section 1: Learn -->
+  <section id="learn" class="section">
+    <div class="container">
+      <h2 class="section-title">📖 Learn New Words</h2>
+      <p class="section-desc">Hover over body parts to see their names. Click to hear the pronunciation!</p>
+      <div class="learn-layout">
+        <div class="svg-wrapper" id="learn-svg-wrapper">
+          <!-- SVG injected by JS -->
+        </div>
+        <div class="learn-tooltip" id="learn-tooltip">
+          <span class="tooltip-word"></span>
+          <span class="tooltip-transcription"></span>
+          <span class="tooltip-translation"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Click the Word -->
+  <section id="click-word" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">🎯 Click the Word</h2>
+      <p class="section-desc">Find and click the correct body part on the character!</p>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="click-word-progress"></div>
+      </div>
+      <div class="game-feedback" id="click-word-feedback"></div>
+      <div class="click-word-layout">
+        <div class="word-prompt" id="click-word-prompt">
+          <span class="prompt-label">Click on:</span>
+          <span class="prompt-word" id="click-word-target"></span>
+        </div>
+        <div class="svg-wrapper" id="click-word-svg-wrapper">
+          <!-- SVG injected by JS -->
+        </div>
+      </div>
+      <button class="btn btn-primary" id="click-word-restart" style="display:none;">Play Again</button>
+    </div>
+  </section>
+
+  <!-- Section 3: Listen & Find -->
+  <section id="listen-find" class="section">
+    <div class="container">
+      <h2 class="section-title">👂 Listen &amp; Find</h2>
+      <p class="section-desc">Listen to the word and click the correct body part!</p>
+      <div class="progress-bar-container">
+        <div class="progress-bar" id="listen-find-progress"></div>
+      </div>
+      <div class="game-feedback" id="listen-find-feedback"></div>
+      <div class="listen-find-layout">
+        <div class="listen-controls">
+          <button class="btn btn-accent btn-round" id="listen-play-btn">🔊 Play Sound</button>
+          <p class="listen-hint" id="listen-hint"></p>
+        </div>
+        <div class="svg-wrapper" id="listen-find-svg-wrapper">
+          <!-- SVG injected by JS -->
+        </div>
+      </div>
+      <button class="btn btn-primary" id="listen-find-restart" style="display:none;">Play Again</button>
+    </div>
+  </section>
+
+  <!-- Section 4: Drag & Drop -->
+  <section id="drag-drop" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">✋ Drag &amp; Drop</h2>
+      <p class="section-desc">Drag the labels to the correct body parts!</p>
+      <div class="game-feedback" id="drag-drop-feedback"></div>
+      <div class="drag-drop-layout">
+        <div class="svg-wrapper drag-drop-svg" id="drag-drop-svg-wrapper">
+          <!-- SVG injected by JS, drop zones added dynamically -->
+        </div>
+        <div class="drag-words" id="drag-words">
+          <!-- Draggable word cards injected by JS -->
+        </div>
+      </div>
+      <button class="btn btn-primary" id="drag-drop-restart" style="display:none;">Play Again</button>
+    </div>
+  </section>
+
+  <!-- Section 5: Build the Body -->
+  <section id="build-body" class="section">
+    <div class="container">
+      <h2 class="section-title">🧩 Build the Body</h2>
+      <p class="section-desc" id="build-body-desc">Drag body parts onto the silhouette to build the character!</p>
+      <div class="game-feedback" id="build-body-feedback"></div>
+      <div class="build-body-layout">
+        <div class="build-target" id="build-target">
+          <!-- Silhouette / drop zones -->
+        </div>
+        <div class="build-parts" id="build-parts">
+          <!-- Draggable body parts -->
+        </div>
+      </div>
+      <button class="btn btn-primary" id="build-body-restart" style="display:none;">Play Again</button>
+    </div>
+  </section>
+
+  <!-- Section 6: Dictionary -->
+  <section id="dictionary" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">📚 Dictionary</h2>
+      <p class="section-desc">All the body part words with transcription and translation.</p>
+      <div class="dictionary-table-wrapper">
+        <table class="dictionary-table" id="dictionary-table">
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Transcription</th>
+              <th>Русский</th>
+              <th>Беларуская</th>
+              <th>🔊</th>
+            </tr>
+          </thead>
+          <tbody id="dictionary-body">
+            <!-- Rows injected by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Parts of the Body — Educational Interactive Poster</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/learn.js"></script>
+  <script src="js/click-word.js"></script>
+  <script src="js/listen-find.js"></script>
+  <script src="js/drag-drop.js"></script>
+  <script src="js/build-body.js"></script>
+</body>
+</html>
