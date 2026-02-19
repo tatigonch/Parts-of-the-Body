@@ -46,7 +46,7 @@ function showFeedback(elId, correct, message) {
 // --- Exact anchor points for each body part in SVG viewBox coords (400x650) ---
 const BODY_ANCHORS = {
   hair:     { x: 200, y: 85 },
-  head:     { x: 200, y: 130 },
+  head:     { x: 200, y: 105 },
   forehead: { x: 200, y: 90 },
   eye:      { x: 220, y: 115 },
   ear:      { x: 145, y: 120 },
