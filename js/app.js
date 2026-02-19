@@ -43,6 +43,95 @@ function showFeedback(elId, correct, message) {
   }, 1800);
 }
 
+// --- Exact anchor points for each body part in SVG viewBox coords (400x650) ---
+const BODY_ANCHORS = {
+  hair:     { x: 200, y: 85 },
+  head:     { x: 200, y: 130 },
+  forehead: { x: 200, y: 90 },
+  eye:      { x: 220, y: 115 },
+  ear:      { x: 145, y: 120 },
+  nose:     { x: 200, y: 130 },
+  cheek:    { x: 232, y: 135 },
+  mouth:    { x: 200, y: 153 },
+  lip:      { x: 200, y: 147 },
+  chin:     { x: 200, y: 168 },
+  neck:     { x: 200, y: 188 },
+  shoulder: { x: 135, y: 210 },
+  chest:    { x: 200, y: 240 },
+  arm:      { x: 95,  y: 310 },
+  elbow:    { x: 105, y: 282 },
+  stomach:  { x: 200, y: 325 },
+  finger:   { x: 83,  y: 355 },
+  leg:      { x: 157, y: 445 },
+  knee:     { x: 157, y: 468 },
+  foot:     { x: 152, y: 548 },
+  toe:      { x: 151, y: 573 },
+};
+
+// --- Draw connector lines from drop zones to SVG body parts ---
+function drawConnectorLines(wrapper, svg) {
+  let canvas = wrapper.querySelector('.connector-canvas');
+  if (canvas) canvas.remove();
+
+  canvas = document.createElement('canvas');
+  canvas.className = 'connector-canvas';
+  canvas.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+
+  const wRect = wrapper.getBoundingClientRect();
+  canvas.width = wRect.width;
+  canvas.height = wRect.height;
+  wrapper.appendChild(canvas);
+
+  // Figure out where the SVG is rendered inside the wrapper
+  const svgRect = svg.getBoundingClientRect();
+  const svgViewBox = svg.viewBox.baseVal;
+  const scaleX = svgRect.width / svgViewBox.width;
+  const scaleY = svgRect.height / svgViewBox.height;
+  const svgOffX = svgRect.left - wRect.left;
+  const svgOffY = svgRect.top - wRect.top;
+
+  const ctx = canvas.getContext('2d');
+
+  wrapper.querySelectorAll('.drop-zone').forEach(zone => {
+    const partId = zone.dataset.part;
+    const anchor = BODY_ANCHORS[partId];
+    if (!anchor) return;
+
+    const zRect = zone.getBoundingClientRect();
+
+    // Drop zone center relative to wrapper
+    const x1 = zRect.left + zRect.width / 2 - wRect.left;
+    const y1 = zRect.top + zRect.height / 2 - wRect.top;
+
+    // Body anchor point converted from SVG coords to wrapper pixels
+    const x2 = svgOffX + anchor.x * scaleX;
+    const y2 = svgOffY + anchor.y * scaleY;
+
+    const filled = zone.classList.contains('filled');
+
+    ctx.beginPath();
+    ctx.moveTo(x1, y1);
+    ctx.lineTo(x2, y2);
+    ctx.strokeStyle = filled ? '#27ae60' : '#4A90D9';
+    ctx.lineWidth = 1.5;
+    ctx.globalAlpha = filled ? 0.8 : 0.4;
+    ctx.setLineDash(filled ? [] : [6, 4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.globalAlpha = 1;
+
+    // Dot at body part end
+    ctx.beginPath();
+    ctx.arc(x2, y2, 3, 0, Math.PI * 2);
+    ctx.fillStyle = filled ? '#27ae60' : '#4A90D9';
+    ctx.globalAlpha = filled ? 0.8 : 0.5;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  });
+
+  return canvas;
+}
+
 // --- Mobile nav toggle ---
 document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
