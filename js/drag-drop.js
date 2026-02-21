@@ -8,23 +8,23 @@ function initDragDrop() {
 
     // Drop zones: left/top position as CSS %, alternating sides
     const dropConfig = [
-      { id: 'hair',     left: '-5%',  top: '8%' },
-      { id: 'head',     left: '105%', top: '12%' },
-      { id: 'eye',      left: '105%', top: '17%' },
-      { id: 'ear',      left: '-5%',  top: '17%' },
-      { id: 'nose',     left: '105%', top: '21%' },
-      { id: 'mouth',    left: '105%', top: '25%' },
-      { id: 'neck',     left: '-5%',  top: '29%' },
-      { id: 'shoulder', left: '-5%',  top: '33%' },
-      { id: 'chest',    left: '105%', top: '36%' },
+      { id: 'hair',     left: '-5%',  top: '3%' },
+      { id: 'head',     left: '105%', top: '10%' },
+      { id: 'ear',      left: '-5%',  top: '13%' },
+      { id: 'eye',      left: '105%', top: '18%' },
+      { id: 'neck',     left: '-5%',  top: '24%' },
+      { id: 'nose',     left: '105%', top: '26%' },
+      { id: 'shoulder', left: '-5%',  top: '34%' },
+      { id: 'mouth',    left: '105%', top: '34%' },
+      { id: 'chest',    left: '105%', top: '42%' },
       { id: 'arm',      left: '-5%',  top: '43%' },
-      { id: 'elbow',    left: '-5%',  top: '47%' },
       { id: 'stomach',  left: '105%', top: '50%' },
-      { id: 'finger',   left: '-5%',  top: '55%' },
-      { id: 'leg',      left: '105%', top: '67%' },
-      { id: 'knee',     left: '105%', top: '72%' },
-      { id: 'foot',     left: '-5%',  top: '83%' },
-      { id: 'toe',      left: '-5%',  top: '88%' },
+      { id: 'elbow',    left: '-5%',  top: '51%' },
+      { id: 'finger',   left: '-5%',  top: '59%' },
+      { id: 'leg',      left: '105%', top: '66%' },
+      { id: 'knee',     left: '105%', top: '75%' },
+      { id: 'foot',     left: '-5%',  top: '81%' },
+      { id: 'toe',      left: '-5%',  top: '90%' },
     ];
 
     let placed = 0;

@@ -549,7 +549,7 @@ body {
 
   .drop-zone {
     min-width: 46px;
-    height: 24px;
+    height: 20px;
     font-size: 0.65rem;
   }
 
@@ -622,7 +622,7 @@ body {
 
   .drop-zone {
     min-width: 55px;
-    height: 28px;
+    height: 24px;
     font-size: 0.75rem;
   }
 
