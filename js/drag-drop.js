@@ -52,6 +52,7 @@ function initDragDrop() {
         zone.style.top = cfg.top;
         zone.style.transform = 'translate(-50%, -50%)';
         zone.style.zIndex = '2';
+        zone.dataset.side = cfg.left.startsWith('-') ? 'left' : 'right';
         zone.textContent = '?';
 
         zone.addEventListener('dragover', e => {

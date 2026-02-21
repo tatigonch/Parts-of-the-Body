@@ -8,11 +8,15 @@ function initLabelBody() {
 
     // Input fields: alternating left/right
     const labelConfig = [
+      { id: 'hair',     left: '-5%',  top: '8%' },
       { id: 'head',     left: '105%', top: '14%' },
+      { id: 'eye',      left: '-5%',  top: '17%' },
+      { id: 'neck',     left: '105%', top: '26%' },
       { id: 'shoulder', left: '-5%',  top: '32%' },
       { id: 'chest',    left: '105%', top: '38%' },
       { id: 'arm',      left: '-5%',  top: '43%' },
       { id: 'stomach',  left: '105%', top: '50%' },
+      { id: 'finger',   left: '-5%',  top: '55%' },
       { id: 'leg',      left: '105%', top: '68%' },
       { id: 'knee',     left: '-5%',  top: '72%' },
       { id: 'foot',     left: '-5%',  top: '85%' },
@@ -43,9 +47,8 @@ function initLabelBody() {
         box.style.top = cfg.top;
         box.style.transform = 'translate(-50%, -50%)';
         box.style.zIndex = '2';
+        box.dataset.side = cfg.left.startsWith('-') ? 'left' : 'right';
         box.style.padding = '0';
-        box.style.minWidth = '90px';
-        box.style.height = '34px';
         box.style.background = '#fff';
 
         const input = document.createElement('input');
